@@ -15,7 +15,8 @@ def start(bot, update):
   update.message.reply_text('soy un bot tonto maxo')
   
 def lol(bot, update):
-  update.message.reply_text('a rockear siempre giorgios')
+  keyboard = build_keyboard("aa")
+  send_message("Select an item to delete", chat, keyboard)
 
 
 def help(bot, update):
