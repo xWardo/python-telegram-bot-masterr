@@ -19,9 +19,8 @@ def lol(bot, update):
     ['7', '8', '9'],
     ['4', '5', '6'],
     ['1', '2', '3'],
-            ['0'] ]
-
-
+            ['0'] 
+ ]
 
 def help(bot, update):
     update.message.reply_text('help messaggggge')
