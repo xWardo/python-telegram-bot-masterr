@@ -16,7 +16,7 @@ def start(bot, update):
   
 def lol(bot, update):
   keyboard = build_keyboard("aa")
-  send_message("Select an item to delete", chat, keyboard)
+  update.message.reply_text("Select an item to delete", chat, keyboard)
 
 
 def help(bot, update):
