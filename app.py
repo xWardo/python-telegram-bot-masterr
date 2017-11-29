@@ -11,7 +11,7 @@ TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
 
 
 def start(bot, update):
-    update.message.reply_text('welcome MESSAGE')
+    update.message('tonto el culo')
 
 
 def help(bot, update):
