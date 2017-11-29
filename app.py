@@ -21,6 +21,9 @@ def help(bot, update):
 def echo(bot, update):
     update.message.reply_text(update.message.text)
 
+def nuria(bot, update):
+    update.message.reply_text("13,417")
+
 
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"' % (update, error))
