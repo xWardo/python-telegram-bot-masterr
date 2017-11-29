@@ -13,6 +13,9 @@ TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
 
 def start(bot, update):
   update.message.reply_text('soy un bot tonto maxo')
+  
+def lol(bot, update):
+  update.message.reply_text('a rockear siempre giorgios')
 
 
 def help(bot, update):
