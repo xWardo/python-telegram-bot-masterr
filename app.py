@@ -3,8 +3,7 @@ from queue import Queue
 from threading import Thread
 from telegram import Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters
-import telebot
-tb = telebot.TeleBot(TOKEN)
+
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -13,7 +12,6 @@ TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
 
 
 def start(bot, update):
-    tb.send_message('chat_id', 'Hola mundo!')
     print "Iniciada conversación: "
     print update.message.chat_id
     bot.sendMessage(chat_id=update.message.chat_id, text="Hola, soy tu bot!!!")
