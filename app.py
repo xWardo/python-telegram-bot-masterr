@@ -4,7 +4,6 @@ from threading import Thread
 from telegram import Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters
 
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -12,22 +11,18 @@ TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
 
 
 def start(bot, update):
-  update.message.reply_text('soy un bot tonto maxo')
-  
-def lol(bot, update):
-  update.message.reply_text('a rockear siempre giorgios')
+    update.message.reply_text('welcome MESSAGE')
 
 
 def help(bot, update):
-    update.message.reply_text('help messaggggge')
+    update.message.reply_text('help message')
 
 
 def echo(bot, update):
     update.message.reply_text(update.message.text)
-    
-    
+
 def nuria(bot, update):
-    update.message.reply_text('13,417')
+    update.message.reply_text("13,417")
 
 
 def error(bot, update, error):
@@ -49,9 +44,6 @@ def setup(webhook_url=None):
         dp = updater.dispatcher
         dp.add_handler(CommandHandler("start", start))
         dp.add_handler(CommandHandler("help", help))
-        dp.add_handler(CommandHandler("ayuda", ayuda))
-        dp.add_handler(CommandHandler("nuria", nuria))
-        dp.add_handler(CommandHandler("lol", lol))
 
         # on noncommand i.e message - echo the message on Telegram
         dp.add_handler(MessageHandler(Filters.text, echo))
@@ -72,3 +64,4 @@ def setup(webhook_url=None):
 
 if __name__ == '__main__':
     setup()
+
