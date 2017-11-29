@@ -54,6 +54,7 @@ def setup(webhook_url=None):
         dp.add_handler(CommandHandler("help", help))
         dp.add_handler(CommandHandler("ayuda", ayuda))
         dp.add_handler(CommandHandler("nuria", nuria))
+        dp.add_handler(CommandHandler("lol", lol))
 
         # on noncommand i.e message - echo the message on Telegram
         dp.add_handler(MessageHandler(Filters.text, echo))
