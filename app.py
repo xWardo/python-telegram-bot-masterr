@@ -18,7 +18,7 @@ def lol(bot, update):
   update.message.reply_text('a rockear siempre giorgios')
 
 
-def help ^ def ayuda (bot, update):
+def help(bot, update) ^ def ayuda(bot, update):
     update.message.reply_text('help messaggggge')
 
 def echo(bot, update):
@@ -49,6 +49,7 @@ def setup(webhook_url=None):
         dp.add_handler(CommandHandler("start", start))
         dp.add_handler(CommandHandler("help", help))
         dp.add_handler(CommandHandler("nuria", nuria))
+        dp.add_handler(CommandHandler("ayuda", ayuda))
 
         # on noncommand i.e message - echo the message on Telegram
         dp.add_handler(MessageHandler(Filters.text, echo))
