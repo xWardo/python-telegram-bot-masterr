@@ -19,7 +19,7 @@ def help(bot, update):
     update.message.reply_text('help message')
     
 def ayuda(bot, update):
-    update.message.reply_text('un mensaje cualquiera')
+    update.message.text('nacho herraiz me cago en tus putos muertos')
 
 
 def echo(bot, update):
