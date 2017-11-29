@@ -16,7 +16,7 @@ def start(bot, update):
 
 
 def help(bot, update):
-    update.message.reply_text('help message')
+    update.message.reply_text('help messaggggge')
     
 def ayuda(bot, update):
     update.message.text('nacho herraiz me cago en tus putos muertos')
