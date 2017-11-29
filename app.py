@@ -12,9 +12,7 @@ TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
 
 
 def start(bot, update):
-    print "Iniciada conversación: "
-    print update.message.chat_id
-    bot.sendMessage(chat_id=update.message.chat_id, text="Hola, soy tu bot!!!")
+  update.message.reply_text('soy un bot tonto maxo')
 
 
 def help(bot, update):
