@@ -18,7 +18,7 @@ def lol(bot, update):
   update.message.reply_text('a rockear siempre giorgios')
 
 
-def help(bot, update) ^ def ayuda(bot, update):
+def help(bot, update):
     update.message.reply_text('help messaggggge')
 
 def echo(bot, update):
