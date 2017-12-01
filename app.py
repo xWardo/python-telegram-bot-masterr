@@ -23,7 +23,7 @@ def lol(bot, update):
  ]
 
 def dormir(bot, update):
-    update.message.text('%s se va a dormir, nanit peña!')
+    update.message.reply('%s se va a dormir, nanit peña!')
 
 def echo(bot, update):
     update.message.reply_text(update.message.text)
