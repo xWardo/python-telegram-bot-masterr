@@ -1,79 +1,75 @@
+from telegram.ext import Updater #Importas las librerias
+updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
+from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
+dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
+
+#Esto crea un registro en la consola para saber si falla algo pues que diga que es lo que falla
 import logging
-from queue import Queue
-from threading import Thread
-from telegram import Bot
-from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters
-
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger(__name__)
-TOKEN = '475932987:AAG7GkKxGNh7qDdK3VCilufT3lR7yiWgCBo'
+                        level=logging.INFO)
 
-
+#Para el comando start
 def start(bot, update):
-  update.message.reply_text('soy un bot tonto maxo')
-  
-def lol(bot, update):
- keyboard = [
-    ['7', '8', '9'],
-    ['4', '5', '6'],
-    ['1', '2', '3'],
-            ['0'] 
- ]
+        bot.send_message(chat_id=update.message.chat_id, text="Hola! estas usando a AetmBOT. para recibir ayuda escribre /help",
+        reply_markup=keyboard_cmds()) #Llama a la funcion que construye el teclado
 
-def dormir(bot, update):
-    update.message.reply('%s se va a dormir, nanit peña!')
+#Contruye el teclado con los comandos que yo le diga
+def keyboard_cmds():
+    command_buttons = [
+        KeyboardButton("/help"),
+        KeyboardButton("/nuria"),
+        KeyboardButton("/aetm"),
+        KeyboardButton("/capitulito"),
+        KeyboardButton("/pole"),
+        KeyboardButton("/github"),
+        KeyboardButton("/donaciones"),
+        KeyboardButton("/start"),
+    ]
+#Devuelve el telcado con 3 columnas y llamando a la funcion build que organiza el telcado
+    return ReplyKeyboardMarkup(build_menu(command_buttons, n_cols=3))
 
+def build_menu(buttons, n_cols=1, header_buttons=None, footer_buttons=None):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+
+    return menu
+
+
+
+from telegram.ext import CommandHandler #Importas más librerias
+start_handler = CommandHandler('start', start) #Haces que con el comando /start se inicie la funcion start
+dispatcher.add_handler(start_handler) #Lo añades al dispatcher
+#Para que repita los mensajes
 def echo(bot, update):
-    update.message.reply_text(update.message.text)
-    
-    
-def nuria(bot, update):
-    update.message.reply_text('13,417')
+        bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
 
-def nuria(bot, update):
-    update.message.reply_text("13,417")
+from telegram.ext import MessageHandler, Filters
+echo_handler = MessageHandler(Filters.text, echo)
+dispatcher.add_handler(echo_handler)
 
+def ayuda(bot, update):
+        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n /nuria para ver el numero divino \n /AETM para ver el estado de la serie AETM \n")
 
-def error(bot, update, error):
-    logger.warning('Update "%s" caused error "%s"' % (update, error))
-
-# Write your handlers here
-
-
-def setup(webhook_url=None):
-    """If webhook_url is not passed, run with long-polling."""
-    logging.basicConfig(level=logging.WARNING)
-    if webhook_url:
-        bot = Bot(TOKEN)
-        update_queue = Queue()
-        dp = Dispatcher(bot, update_queue)
-    else:
-        updater = Updater(TOKEN)
-        bot = updater.bot
-        dp = updater.dispatcher
-        dp.add_handler(CommandHandler("start", start))
-        dp.add_handler(CommandHandler("dormir", dormir))
-        dp.add_handler(CommandHandler("nuria", nuria))
-        dp.add_handler(CommandHandler("lol", lol))
-
-        # on noncommand i.e message - echo the message on Telegram
-        dp.add_handler(MessageHandler(Filters.text, echo))
-
-        # log all errors
-        dp.add_error_handler(error)
-    # Add your handlers here
-    if webhook_url:
-        bot.set_webhook(webhook_url=webhook_url)
-        thread = Thread(target=dp.start, name='dispatcher')
-        thread.start()
-        return update_queue, bot
-    else:
-        bot.set_webhook()  # Delete webhook
-        updater.start_polling()
-        updater.idle()
+help_handler = CommandHandler('help', ayuda)
+ayuda_handler = CommandHandler('ayuda', ayuda)
+dispatcher.add_handler(ayuda_handler)
+dispatcher.add_handler(help_handler)
 
 
-if __name__ == '__main__':
-    setup()
+
+#Si ponen un comando que no está registrado
+def unknown(bot, update):
+        bot.send_message(chat_id=update.message.chat_id, text="Lo siento, no entiendo ese comando! asegurate de escribirlo bien. /help para ver los comandos disponibles.")
+
+unknown_handler = MessageHandler(Filters.command, unknown)
+dispatcher.add_handler(unknown_handler)
+
+
+
+
+
+updater.start_polling() #Para empexar el bot
