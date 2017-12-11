@@ -4,6 +4,11 @@ from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove) #Importas más l
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler, ConversationHandler)
 import logging
 
+updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
+
+dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
+
+updater.idle()
 
 
 #Esto crea un registro en la consola para saber si falla algo pues que diga que es lo que falla
@@ -115,36 +120,7 @@ def capitulito(bot, update, user_data):
 
 
 
-def main():
-    #Actualizador
-    updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
 
-    dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
-
-    #Obtener el despachador para registrar los controladores
-    dp = updater.dispatcher
-
-    #Manejador de conversación con los estados
-    conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('prueba',prueba)],
-
-        states = {
-            CHOOSING: [RegexHandler('^(120|Color favorito|Numero de hermanos)$',
-                                    capitulito,
-                                    pass_user_data=True),
-                       RegexHandler('^Algunas cosas...$', custom_choice),
-                       ],
-        },
-
-        fallbacks = [RegexHandler('^Done$',ayuda, pass_user_data = True)]
-    )
-    dp.add_handler(conv_handler)
-
-
-
-    updater.start_polling()
-
-    updater.idle()
     start_handler = CommandHandler('start', start) #Haces que con el comando /start se inicie la funcion start
     dispatcher.add_handler(start_handler) #Lo añades al dispatcher
     help_handler = CommandHandler('help', ayuda)
@@ -168,8 +144,7 @@ def main():
 #unknown_handler = MessageHandler(Filters.command, unknown)
 #dispatcher.add_handler(unknown_handler)
 
-#updater.start_polling() #Para empexar el bot
+updater.start_polling() #Para empexar el bot
 
-if __name__ == '__main__':
-    main()
+
 
