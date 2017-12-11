@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from telegram.ext import Updater #Importas las librerias
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove) #Importas más librerias
