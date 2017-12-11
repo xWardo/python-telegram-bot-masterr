@@ -140,7 +140,7 @@ def main():
     )
     dp.add_handler(conv_handler)
 
-    dp.add_error_handler(nuria)
+
 
     updater.start_polling()
 
