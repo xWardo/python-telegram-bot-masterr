@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
+import os, sys
 from telegram.ext import Updater #Importas las librerias
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove) #Importas más librerias
