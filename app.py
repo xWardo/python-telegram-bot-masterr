@@ -52,7 +52,7 @@ echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 
 def ayuda(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n /nuria para ver el numero divino \n /AETM para ver el estado de la serie AETM \n")
+        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n /nuria para ver el numero divino \n /AETM para ver eeeeeel estado de la serie AETM \n")
 
 help_handler = CommandHandler('help', ayuda)
 ayuda_handler = CommandHandler('ayuda', ayuda)
