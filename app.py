@@ -42,7 +42,6 @@ def build_menu(buttons, n_cols=1, header_buttons=None, footer_buttons=None):
 
 
 
-from telegram.ext import CommandHandler #Importas más librerias
 start_handler = CommandHandler('start', start) #Haces que con el comando /start se inicie la funcion start
 dispatcher.add_handler(start_handler) #Lo añades al dispatcher
 #Para que repita los mensajes
@@ -53,7 +52,7 @@ echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 
 def ayuda(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
+        bot.send_message(chat_id=update.message.chat_id, text="Comandos del booot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
 
 help_handler = CommandHandler('help', ayuda)
 ayuda_handler = CommandHandler('ayuda', ayuda)
@@ -80,14 +79,14 @@ def capitulito(bot, update, user_data):
           bot.send_message(chat_id=update.message.chat_id, text="http://www.animeyt.tv/ver/shokugeki-no-souma-san-no-sara-9-sub-espanol")
           contador = contador+1
 
-    aetm_handler = CommandHandler('aetm', aetm)
-    dispatcher.add_handler(aetm_handler)
-    donaciones_handler = CommandHandler('donaciones', donaciones)
-    dispatcher.add_handler(donaciones_handler)
-    nuria_handler = CommandHandler('nuria', nuria)
-    dispatcher.add_handler(nuria_handler)
-    capitulito_handler = CommandHandler('capitulito', capitulito)
-    dispatcher.add_handler(capitulito_handler)
+aetm_handler = CommandHandler('aetm', aetm)
+dispatcher.add_handler(aetm_handler)
+donaciones_handler = CommandHandler('donaciones', donaciones)
+dispatcher.add_handler(donaciones_handler)
+nuria_handler = CommandHandler('nuria', nuria)
+dispatcher.add_handler(nuria_handler)
+capitulito_handler = CommandHandler('capitulito', capitulito)
+dispatcher.add_handler(capitulito_handler)
 
 #Si ponen un comando que no está registrado
 def unknown(bot, update):
