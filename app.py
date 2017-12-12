@@ -73,7 +73,7 @@ def donaciones(bot, update):
 
 
 def nuria(bot, update):
-      bot.send_message(chat_id=update.message.chat_id, text="13.472")
+      bot.send_message(chat_id=update.message.chat_id, text="13.412234567543245676877867543654657678976574352e4r5678899uigyfutdxdsrew435567k1")
 
 
 
@@ -103,14 +103,8 @@ def restart(bot, update):
     update.message.reply_text('Bot is restarting...')
     Thread(target=stop_and_restart).start()
 
-    
-restart_handler = CommandHandler('restart', restart)
-dispatcher.add_handler(restart_handler)
-stop_and_restart_handler = CommandHandler('stop_and_restart', restart)
-dispatcher.add_handler(stop_and_restart_handler) 
 
-
-dispatcher.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
+dispatcher.add_handler(CommandHandler('restart', restart, filters=Filters.user(username='@xWardo')))
 
 #Si ponen un comando que no está registrado
 def unknown(bot, update):
