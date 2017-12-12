@@ -67,7 +67,7 @@ def donaciones(bot, update):
 
 def nuria(bot, update):
       numero = random.randint(000000000, 999999999)
-      bot.send_message(chat_id=update.message.chat_id, text="13.412"+numero)
+      bot.send_message(chat_id=update.message.chat_id, text="13.412",numero)
 
 
 
