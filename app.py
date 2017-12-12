@@ -104,7 +104,7 @@ stop_and_restart_handler = CommandHandler('stop_and_restart', restart)
 dispatcher.add_handler(stop_and_restart_handler) 
 
 
-add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
+dp.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
 
     # ...or here, depending on your preference :)
 #Si ponen un comando que no está registrado
