@@ -55,22 +55,25 @@ pole_handler = MessageHandler('pole', pole)
 dispatcher.add_handler(pole_handler)
 
 def ayuda(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
+    bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
 
+    
 def aetm(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Actualmente en parón MOMENTANEO.\n\nPuedes visitar el canal de youtube: https://goo.gl/drSjMT \n\nY el blog: http://luciatrapadaentusonrisa.blogspot.com.es")
+    bot.send_message(chat_id=update.message.chat_id, text="Actualmente en parón MOMENTANEO.\n\nPuedes visitar el canal de youtube: https://goo.gl/drSjMT \n\nY el blog: http://luciatrapadaentusonrisa.blogspot.com.es")
 
+    
 def donaciones(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
+    bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
 
+    
 def nuria(bot, update):
-      bot.send_message(chat_id=update.message.chat_id, text="13,4126821347856583241t632r5789'43212r5t7fgvyu546@2@@3#34895yuhbv´ç+´gfh23456")
+    bot.send_message(chat_id=update.message.chat_id, text="13,4126821347856583241t632r5789'43212r5t7fgvyu546@2@@3#34895yuhbv´ç+´gfh23456")
 
 
 
 def capitulito(bot, update):
-     contador = 0
-     while (contador < 120):
+    contador = 0
+    while (contador < 120):
          bot.send_message(chat_id=update.message.chat_id, text="http://www.animeyt.tv/ver/shokugeki-no-souma-san-no-sara-10-sub-espanol")
          contador = contador+1
 
