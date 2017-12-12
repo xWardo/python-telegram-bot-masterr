@@ -99,9 +99,9 @@ def restart(bot, update):
 
     
 restart_handler = CommandHandler('restart', restart)
-restart.add_handler(restart_handler)
+dispatcher.add_handler(restart_handler)
 stop_and_restart_handler = CommandHandler('stop_and_restart', restart)
-stop_and_restart.add_handler(stop_and_restart_handler) 
+dispatcher.add_handler(stop_and_restart_handler) 
 
 
 add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
