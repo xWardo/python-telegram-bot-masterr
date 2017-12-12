@@ -1,7 +1,7 @@
 from telegram.ext import Updater #Importas las librerias
-#updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
+updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
-#dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
+dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
 import os
@@ -91,8 +91,8 @@ dispatcher.add_handler(nuria_handler)
 capitulito_handler = CommandHandler('capitulito', capitulito)
 dispatcher.add_handler(capitulito_handler)
 
-updater = Updater("458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4")
-dp = updater.dispatcher
+#updater = Updater("458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4")
+#dp = updater.dispatcher
 
 def stop_and_restart():
     """Gracefully stop the Updater and replace the current process with a new one"""
@@ -110,9 +110,8 @@ stop_and_restart_handler = CommandHandler('stop_and_restart', restart)
 dispatcher.add_handler(stop_and_restart_handler) 
 
 
-dp.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
+dispatcher.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
 
-    # ...or here, depending on your preference :)
 #Si ponen un comando que no está registrado
 def unknown(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Lo siento, no entiendo ese comando! asegurate de escribirlo bien. /help para ver los comandos disponibles.")
