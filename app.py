@@ -25,7 +25,7 @@ def keyboard_cmds():
         KeyboardButton("/nuria"),
         KeyboardButton("/aetm"),
         KeyboardButton("/capitulito"),
-        KeyboardButton("/pole"),
+        KeyboardButton("pole"),
         KeyboardButton("/github"),
         KeyboardButton("/donaciones"),
         KeyboardButton("/start"),
