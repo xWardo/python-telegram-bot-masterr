@@ -88,6 +88,8 @@ dispatcher.add_handler(nuria_handler)
 capitulito_handler = CommandHandler('capitulito', capitulito)
 dispatcher.add_handler(capitulito_handler)
 
+dp = updater.dispatcher
+
 def stop_and_restart():
     """Gracefully stop the Updater and replace the current process with a new one"""
     updater.stop()
