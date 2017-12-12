@@ -77,7 +77,7 @@ def nuria(bot, update):
 
 
 
-def capitulito(bot, update, user_data):
+def capitulito(bot, update):
       contador = 0
       while (contador < 120):
           bot.send_message(chat_id=update.message.chat_id, text="http://www.animeyt.tv/ver/shokugeki-no-souma-san-no-sara-9-sub-espanol")
