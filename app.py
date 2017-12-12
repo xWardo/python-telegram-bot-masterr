@@ -49,9 +49,7 @@ start_handler = CommandHandler('start', start) #Haces que con el comando /start 
 dispatcher.add_handler(start_handler) #Lo añades al dispatcher
 #Para que repita los mensajes
 def pole(bot, update):
-        text =  update.message.text
-        if text == "pole":
-          bot.send_message(chat_id=update.message.chat_id, text="Menuda poleada te has marcado maquina")
+       bot.send_message(chat_id=update.message.chat_id, text="Menuda poleada te has marcado maquina")
 
 pole_handler = MessageHandler('pole', pole)
 dispatcher.add_handler(pole_handler)
@@ -66,8 +64,7 @@ def donaciones(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
 
 def nuria(bot, update):
-      numero = random.randint(000000000, 999999999)
-      bot.send_message(chat_id=update.message.chat_id, text=numero)
+      bot.send_message(chat_id=update.message.chat_id, text="13,4126821347856583241t632r5789'43212r5t7fgvyu546@2@@3#34895yuhbv´ç+´gfh23456")
 
 
 
