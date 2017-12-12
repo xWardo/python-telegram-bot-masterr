@@ -3,7 +3,7 @@ from telegram.ext import Updater #Importas las librerias
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
 dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
 from telegram.ext import CommandHandler
-from telegram.ext import MessageHandler, Filtersç
+from telegram.ext import MessageHandler, Filters
 import os
 import sys
 from threading import Thread
