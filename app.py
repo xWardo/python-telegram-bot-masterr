@@ -48,29 +48,22 @@ def build_menu(buttons, n_cols=1, header_buttons=None, footer_buttons=None):
 start_handler = CommandHandler('start', start) #Haces que con el comando /start se inicie la funcion start
 dispatcher.add_handler(start_handler) #Lo añades al dispatcher
 #Para que repita los mensajes
-def echo(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
+def pole(bot, update):
+        text =  update.message.text
+        if text == "pole":
+          bot.send_message(chat_id=update.message.chat_id, text="Menuda poleada te has marcado maquina")
 
-echo_handler = MessageHandler(Filters.text, echo)
-dispatcher.add_handler(echo_handler)
+pole_handler = MessageHandler(Filters.text, pole)
+dispatcher.add_handler(pole_handler)
 
 def ayuda(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
 
-help_handler = CommandHandler('help', ayuda)
-ayuda_handler = CommandHandler('ayuda', ayuda)
-dispatcher.add_handler(ayuda_handler)
-dispatcher.add_handler(help_handler)
-
 def aetm(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Actualmente en parón MOMENTANEO.\n\nPuedes visitar el canal de youtube: https://goo.gl/drSjMT \n\nY el blog: http://luciatrapadaentusonrisa.blogspot.com.es")
 
-
-
 def donaciones(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
-
-
 
 def nuria(bot, update):
       bot.send_message(chat_id=update.message.chat_id, text="13.412234567543245676877867543654657678976574352e4r5678899uigyfutdxdsrew435567k1")
@@ -83,6 +76,10 @@ def capitulito(bot, update):
          bot.send_message(chat_id=update.message.chat_id, text="http://www.animeyt.tv/ver/shokugeki-no-souma-san-no-sara-10-sub-espanol")
          contador = contador+1
 
+help_handler = CommandHandler('help', ayuda)
+ayuda_handler = CommandHandler('ayuda', ayuda)
+dispatcher.add_handler(ayuda_handler)
+dispatcher.add_handler(help_handler)
 aetm_handler = CommandHandler('aetm', aetm)
 dispatcher.add_handler(aetm_handler)
 donaciones_handler = CommandHandler('donaciones', donaciones)
