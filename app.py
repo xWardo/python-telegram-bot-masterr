@@ -53,7 +53,7 @@ def pole(bot, update):
         if text == "pole":
           bot.send_message(chat_id=update.message.chat_id, text="Menuda poleada te has marcado maquina")
 
-pole_handler = MessageHandler(Filters.text, pole)
+pole_handler = MessageHandler('pole', pole)
 dispatcher.add_handler(pole_handler)
 
 def ayuda(bot, update):
