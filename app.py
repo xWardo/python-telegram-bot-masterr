@@ -66,7 +66,8 @@ def donaciones(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
 
 def nuria(bot, update):
-      bot.send_message(chat_id=update.message.chat_id, text="13.412234567543245676877867543654657678976574352e4r5678899uigyfutdxdsrew435567k1")
+      numero = random.randint(000000000, 999999999)
+      bot.send_message(chat_id=update.message.chat_id, text="13.412"+numero)
 
 
 
