@@ -52,7 +52,7 @@ echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 
 def ayuda(bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text="Comandos del booot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
+        bot.send_message(chat_id=update.message.chat_id, text="Comandos del bot:\n\n/nuria para ver el numero divino\n\n/AETM para ver el estado de la serie AETM\n\n/capitulito anuncia del capitulito actual, haciendo un spam de la HOSTIA PUTA JODERRR.\n /pole para polear con mucha más felicidad y facilidad \n /github pagina de github (algo momentaneo para el admin) \n /donaciones Ayuda a este bot!!")
 
 help_handler = CommandHandler('help', ayuda)
 ayuda_handler = CommandHandler('ayuda', ayuda)
@@ -88,6 +88,25 @@ dispatcher.add_handler(nuria_handler)
 capitulito_handler = CommandHandler('capitulito', capitulito)
 dispatcher.add_handler(capitulito_handler)
 
+def stop_and_restart():
+    """Gracefully stop the Updater and replace the current process with a new one"""
+    updater.stop()
+    os.execl(sys.executable, sys.executable, *sys.argv)
+
+def restart(bot, update):
+    update.message.reply_text('Bot is restarting...')
+    Thread(target=stop_and_restart).start()
+
+    
+restart_handler = CommandHandler('restart', restart)
+restart.add_handler(restart_handler)
+stop_and_restart_handler = CommandHandler('stop_and_restart', restart)
+stop_and_restart.add_handler(stop_and_restart_handler) 
+
+
+dp.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@xWardo')))
+
+    # ...or here, depending on your preference :)
 #Si ponen un comando que no está registrado
 def unknown(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Lo siento, no entiendo ese comando! asegurate de escribirlo bien. /help para ver los comandos disponibles.")
