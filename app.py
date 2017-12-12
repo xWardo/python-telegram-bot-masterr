@@ -60,7 +60,34 @@ ayuda_handler = CommandHandler('ayuda', ayuda)
 dispatcher.add_handler(ayuda_handler)
 dispatcher.add_handler(help_handler)
 
+def aetm(bot, update):
+        bot.send_message(chat_id=update.message.chat_id, text="Actualmente en parón MOMENTANEO.\n\nPuedes visitar el canal de youtube: https://goo.gl/drSjMT \n\nY el blog: http://luciatrapadaentusonrisa.blogspot.com.es")
 
+
+
+def donaciones(bot, update):
+        bot.send_message(chat_id=update.message.chat_id, text="Dona a este bot para seguir manteniendo los servidores y ayudar al creador!\npaypal.me/memestroika")
+
+
+
+def nuria(bot, update):
+      bot.send_message(chat_id=update.message.chat_id, text="13.472")
+
+
+
+def capitulito(bot, update, user_data):
+      while (contador < 120):
+          bot.send_message(chat_id=update.message.chat_id, text="http://www.animeyt.tv/ver/shokugeki-no-souma-san-no-sara-9-sub-espanol")
+          contador = contador+1
+
+    aetm_handler = CommandHandler('aetm', aetm)
+    dispatcher.add_handler(aetm_handler)
+    donaciones_handler = CommandHandler('donaciones', donaciones)
+    dispatcher.add_handler(donaciones_handler)
+    nuria_handler = CommandHandler('nuria', nuria)
+    dispatcher.add_handler(nuria_handler)
+    capitulito_handler = CommandHandler('capitulito', capitulito)
+    dispatcher.add_handler(capitulito_handler)
 
 #Si ponen un comando que no está registrado
 def unknown(bot, update):
