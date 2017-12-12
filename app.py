@@ -2,6 +2,8 @@ from telegram.ext import Updater #Importas las librerias
 updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
 dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
+from telegram.ext import CommandHandler
+from telegram.ext import MessageHandler, Filters
 
 #Esto crea un registro en la consola para saber si falla algo pues que diga que es lo que falla
 import logging
@@ -47,7 +49,6 @@ dispatcher.add_handler(start_handler) #Lo añades al dispatcher
 def echo(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
 
-from telegram.ext import MessageHandler, Filters
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 
