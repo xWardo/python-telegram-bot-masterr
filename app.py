@@ -1,5 +1,5 @@
 from telegram.ext import Updater #Importas las librerias
-updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
+#updater = Updater(token='458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4') #Creas el updater para mantener el bot siempre activo
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ParseMode #librerias para cambiar el teclado
 dispatcher = updater.dispatcher #Para que el updater acceda mas rapido al dispatcher
 from telegram.ext import CommandHandler
@@ -91,6 +91,7 @@ dispatcher.add_handler(nuria_handler)
 capitulito_handler = CommandHandler('capitulito', capitulito)
 dispatcher.add_handler(capitulito_handler)
 
+updater = Updater("458849790:AAG9dLDx5f_jNlA8NjnJl_-gTvmW2nN8nh4")
 dp = updater.dispatcher
 
 def stop_and_restart():
